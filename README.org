@@ -1,0 +1,13 @@
+#+title: Read Me
+#+author: Cam
+
+* What is This?
+This is one of my /many/ random projects that start from a "I wonder how hard this would be to do?"
+
+The TL;DR is a parser for a basic language, but that might change over time...
+
+* Why Have Am I Doing This?
+Fun.
+
+* Is There Any Actual Use Case For This?
+Probably not.
