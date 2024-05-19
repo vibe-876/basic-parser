@@ -1,0 +1,41 @@
+:PROPERTIES:
+:header-args: :session parser :tangle parser.lisp
+:END:
+#+title: A Parser
+#+author: Cam
+
+
+* General Functions
+There are a few functions that I feel will be used everywhere, so I'm going to define them here.
+
+#+begin_src lisp
+  #+begin_src lisp
+  (defun working-append (xs x)
+  "I do sometimes get annoyed by the default append behaviour in CL.
+I get why its like that, but still."
+  (append xs (list x)))
+#+end_src
+
+
+* Initial Formatting
+The program must first be put into a legible format, so a string splitter has been written.
+
+Basically, "hello my friends" must become '("hello" "my" "friends") -- this is a pain to do, because I got my brain all used to Haskell and C strings, and Lisp handles them slightly differently :( .
+
+#+begin_src lisp
+(defun splitter (script)
+  "Splits a string into some smaller sub-strings when spaces are found.
+I should have probably written a generalised function instead of hard coding it to spaces, but I'm sure that it will be fine..."
+  (defun splitter-iter (head carry script)
+    (let ((top (char script 0))
+	  (rest (subseq script 1)))
+      
+      (cond ((equal top "") carry)
+	    ((equal top " ") (splitter-iter ""
+					    (working-append carry head)
+					    rest))
+	    (t (splitter-iter (working-append head top)
+			      carry
+			      rest)))))
+  (splitter-iter "" '() script))
+#+end_src
