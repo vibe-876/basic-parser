@@ -4,10 +4,12 @@
 * What is This?
 This is one of my /many/ random projects that start from a "I wonder how hard this would be to do?"
 
-The TL;DR is a parser for a basic language, but that might change over time...
+The TL;DR is a parser for a basic language, but that might change over time; it is being written in Common Lisp, using literate programming in Emacs Org mode.
 
 * Why Have Am I Doing This?
-Fun.
+Mainly fun.
+
+I've done some literate programming before, but only on a small scale (ie my Emacs config file), so there's that too.
 
 * Is There Any Actual Use Case For This?
-Probably not.
+Probably not. As with most of what I program, it's more of a personal experiment.
