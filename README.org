@@ -4,16 +4,7 @@
 * What is This?
 This is one of my /many/ random projects that start from a "I wonder how hard this would be to do?"
 
-The TL;DR is a parser for a basic language, but that might change over time; it is being written in Common Lisp.
-
-** The Plan
-1. Take some string s.
-2. Split s at each space, to form a list l.
-3. Iterate over l, running a cond over each item to find its purpose.
-4. Return that new structure.
-
-** Bits That I Haven't planned yet
-Any of the small details on how to do this.
+It started as an idea for a parser, but it has become my attempt to create a register machine simulation.
 
 * Why Have Am I Doing This?
-Mainly fun.
+Fun.
