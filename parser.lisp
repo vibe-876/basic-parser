@@ -3,20 +3,18 @@
 I get why its like that, but still."
   (append xs (list x)))
 
-(defun splitter (script)
-  "Splits a string into some smaller sub-strings when spaces are found.
-I should have probably written a generalised function instead of hard coding it to spaces, but I'm sure that it will be fine..."
-  (defun splitter-iter (head carry script)
-    (if (= (length script) 0)
-        (let ((top (subseq script 0 1))
-              (rest (subseq script 1)))
-
-          (cond ((equal top "") carry)
-                ((equal top " ") (splitter-iter ""
-                                                (working-append carry head)
-                                                rest))
-                (t (splitter-iter (concatenate 'string head top)
-                                  carry
-                                  rest))))
-        carry))
-  (splitter-iter "" nil script))
+(defun split-by-space (string)
+  "Split up a string by space."
+  (defun split-by-space-iter (string string-carry list-carry)
+    "May God forgive me for this function..."
+    (let ((head (subseq string 0 1))
+	  (tail (subseq string 1)))
+      
+      (cond ((equal tail "") (working-append list-carry (concatenate 'string string-carry head)))
+	    ((equal head " ") (split-by-space-iter tail
+						   ""
+						   (working-append list-carry string-carry)))
+	    (t (split-by-space-iter tail
+				    (concatenate 'string string-carry head)
+				    list-carry)))))
+  (split-by-space-iter string "" nil))
